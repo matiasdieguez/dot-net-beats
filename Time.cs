@@ -16,6 +16,11 @@ namespace DotNetBeats
             Thread.Sleep(ms);
         }
 
+        public static void Seconds(int s)
+        {
+            Thread.Sleep(s * 1000);
+        }
+
         public static void WholeNote()
         {
             Thread.Sleep(WholeNoteValue);

@@ -1,34 +1,42 @@
-﻿namespace DotNetBeats
+﻿using System;
+using System.Threading.Tasks;
+
+namespace DotNetBeats
 {
     class Program
     {
-        static void Main(string[] args)
+        protected static void Main()
         {
             Beat.SamplesFolder = @"C:\Source\dot-net-beats\samples";
 
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    Drum.HiHat();
+                    Time.Sleep(470);
+                }
+            });
+
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    //Beat.Play("bass_c1");
+                    Time.Sleep(3250);
+                }
+            });
+
             while (true)
             {
-                // for (int i = 0; i < 2; i++)
-                // {
-                //     Sample.Safari();
-                //     Time.EighthNote();
-                // }
-
-                Sample.VinylBackspin();
-                Time.QuarterNote();
-
-                Sample.VinylRewind();
-                Time.QuarterNote();
-
-                for (int d = 0; d < 256; d++)
+                for (int d = 0; d < 4; d++)
                 {
                     Drum.Haus();
-                    Time.Sleep(1000);
-                    
-                    Sample.Snap();
-                    Time.Sleep(1000);
-                }
+                    Time.Seconds(1);
 
+                    Sample.Snap();
+                    Time.Seconds(1);
+                }
             }
         }
     }

@@ -1,83 +1,35 @@
-﻿#pragma warning disable CA1416
-
-namespace netdrummer5
+﻿namespace DotNetBeats
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Times.SetWholeNote(2000);
+            Beat.SamplesFolder = @"C:\Source\dot-net-beats\samples";
 
             while (true)
             {
-                for (var i = 0; i < 8; i++)
+                // for (int i = 0; i < 2; i++)
+                // {
+                //     Sample.Safari();
+                //     Time.EighthNote();
+                // }
+
+                Sample.VinylBackspin();
+                Time.QuarterNote();
+
+                Sample.VinylRewind();
+                Time.QuarterNote();
+
+                for (int d = 0; d < 256; d++)
                 {
-                    Drums.Haus();
-                    Times.QuarterNote();
-
-                    Drums.HiHat();
-                    Times.SixteenthNote();
-
-                    Drums.Haus();
-                    Times.QuarterNote();
-
-                    Drums.Haus();
-                    Times.SixteenthNote();
-
-                    Samples.VinylScratch();
-                    Times.SixteenthNote();
+                    Drum.Haus();
+                    Time.Sleep(1000);
+                    
+                    Sample.Snap();
+                    Time.Sleep(1000);
                 }
 
-                for (var i = 0; i < 4; i++)
-                {
-                    Drums.Haus();
-                    Times.EighthNote();
-
-                    Drums.Haus();
-                    Times.EighthNote();
-
-                    Drums.Haus();
-                    Times.EighthNote();
-
-                    Samples.VinylScratch();
-                    Times.EighthNote();
-                }
-
-                for (var i = 0; i < 4; i++)
-                {
-                    Drums.Haus();
-                    Times.SixteenthNote();
-
-                    Drums.Haus();
-                    Times.SixteenthNote();
-
-                    Drums.Haus();
-                    Times.SixteenthNote();
-
-                    Drums.Zome();
-                    Times.SixteenthNote();
-                }
-
-                for (var i = 0; i < 4; i++)
-                {
-                    Drums.Haus();
-                    Times.ThirtySecondNote();
-                    Drums.Haus();
-                    Times.ThirtySecondNote();
-                    Drums.Haus();
-                    Times.ThirtySecondNote();
-                    Drums.Zome();
-                    Times.ThirtySecondNote();
-                }
-
-                for (var i = 0; i < 4; i++)
-                {
-                    Drums.Haus();
-                    Drums.Cymbal();
-                    Times.ThirtySecondNote();
-                }
             }
         }
     }
 }
-#pragma warning restore CA1416

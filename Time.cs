@@ -1,8 +1,8 @@
 using System.Threading;
 
-namespace netdrummer5
+namespace DotNetBeats
 {
-    public static class Times
+    public static class Time
     {
         private static int WholeNoteValue = 4000;
 

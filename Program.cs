@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace DotNetBeats
 {
@@ -8,28 +7,19 @@ namespace DotNetBeats
         protected static void Main()
         {
             Beat.SamplesFolder = @"C:\Source\dot-net-beats\samples";
-
-            Task.Run(() =>
+            
+            Task.Run(()=> 
             {
-                while (true)
+                while(true)
                 {
-                    Drum.HiHat();
-                    Time.Sleep(470);
-                }
-            });
-
-            Task.Run(() =>
-            {
-                while (true)
-                {
-                    //Beat.Play("bass_c1");
-                    Time.Sleep(3250);
+                    Time.Seconds(8);
+                    Drum.Cymbal();
                 }
             });
 
             while (true)
             {
-                for (int d = 0; d < 4; d++)
+                for (var i = 0; i < 8; i++)
                 {
                     Drum.Haus();
                     Time.Seconds(1);
@@ -37,6 +27,11 @@ namespace DotNetBeats
                     Sample.Snap();
                     Time.Seconds(1);
                 }
+
+                //HiHat()
+
+                //Snare()
+
             }
         }
     }
